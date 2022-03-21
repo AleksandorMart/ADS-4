@@ -31,7 +31,7 @@ n++;
 }}
 i++;
 for (int t = j - 1; t >= i; t--) {
-if(arr[j] + arr[t] == value && arr[j] < value && arr[t] < value) {
+if (arr[j] + arr[t] == value && arr[j] < value && arr[t] < value) {
 n++;
 }}
 j--;
@@ -41,5 +41,19 @@ return n;
 int countPairs3(int *arr, int len, int value) {
 serch(arr, len);
 int n = 0;
-
+int s = 0;
+while (arr[s] * 2 < value || s < len) {
+s++;
+}
+for (int i = 0; i < s; i++) {
+for (int j = s; j < len; j++) {
+if (arr[i] + arr[j] == value) {
+n++;
+}}}
+for (int i = s; i < len - 1; i++) {
+for (int j = i + 1; j < len; j++) {
+if (arr[i] + arr[j] == value) {
+n++;
+}}}
+return n;
 }
